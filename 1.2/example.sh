@@ -13,6 +13,7 @@ build/measure > example/measure.dat &
 build/correlation > example/correlation.dat &
 build/auto_correlation > example/auto_correlation.dat &
 build/measure_corr > example/measure_corr.dat &
+build/cmp > example/diff.dat 2> example/same.dat &
 wait
 
 echo "Plotting charts..."
@@ -22,5 +23,7 @@ cd example
 ../plot.sh measure_corr.dat "linespoints pointtype 7" "n" "O(n)" measure_corr.png
 ../plot.sh correlation.dat "linespoints pointtype 7" "tau" "corr(tau)" correlation.png
 ../plot.sh auto_correlation.dat "linespoints pointtype 7" "tau" "corr(tau)" auto_correlation.png
+../plot.sh diff.dat "linespoints pointtype 7" "n" "ns" diff.png
+../plot.sh same.dat "linespoints pointtype 7" "n" "ns" same.png
 
 echo -e "\x1b[32mSuccess. All files are located in the example directory.\x1b[m"
